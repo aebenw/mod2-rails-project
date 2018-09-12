@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
 body{
     background:#bad0f4;
@@ -146,3 +147,9 @@ function initMap(){
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPdhJ7Z6pwRpxtlHG4aYSf2T7XivLBpiY&callback=initMap">
 </script>
+=======
+<% @places.each do |pl| %>
+<h2><%= link_to pl.name, place_path(pl) %></h2>
+<h3>Average User Rating: <%= pl.av_rating %></h3>
+<% end %>
+>>>>>>> 5d8e67a094762d32521d0c761b20127aa5392ba0
