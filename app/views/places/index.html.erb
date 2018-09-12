@@ -1,0 +1,4 @@
+<% @places.each do |pl| %>
+<h2><%= link_to pl.name, place_path(pl) %></h2>
+<h3>Average User Rating: <%= pl.average_rating %></h3>
+<% end %>

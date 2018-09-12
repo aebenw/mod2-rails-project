@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="/places">PeoplePlaces</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><%= link_to "Home", user_path(session[:user_id]) %></li>
+    <li><a href="#">Page 1</a></li>
+    <li><a href="#">Page 2</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a href="users/<%= session[:id] %>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    <li><%= link_to logout_path, method: :delete do %>
+      <span class="glyphicon glyphicon-log-in">
+        <%= label_tag "Logout" %>
+    <% end %>
+    </li>
+  </ul>
+</div>
+</nav>
