@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include ActiveModel::SecurePassword
   has_secure_password
   before_action :require_login, only: [:show]
   def new

@@ -1,36 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#
-require 'faker'
-# Place.create(name: "Empire State", lat:40.7484, lng: 73.9857, kind: "historic")
-# Place.create(name: "Statue of Liberty", lat:40.6892, lng: 74.0445, kind: "historic")
-# Place.create(name: "Staten Island", lat:40.546, lng: 73.9843, kind: "entertainment")
-# Place.create(name: "Central Park", lat:40.7484, lng: 73.8647, kind: "Park")
-# Place.create(name: Faker::Nation.capital_city, lat: Faker::Address.latitude, lng: Faker::Address.longitude, kind: "historic")
-# Place.create(name: "Empire State", lat:Faker::Address.latitude, lng: Faker::Address.longitude, kind: "historic")
-#
-User.create(name: "Eben Woodward", email: "eben@test.com", password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-User.create(name: "Jason Pitts", email: "Jason@test.com", password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-User.create(name: Faker::Name.name, email: Faker::Internet.email, password: "test", lat:Faker::Address.latitude, lng: Faker::Address.longitude)
-#
-#
-UserPlace.create(user_id: 2, place_id:4, rating: 3)
-UserPlace.create(user_id: 1, place_id:5, rating: 4)
-UserPlace.create(user_id: 4, place_id:3, rating: 4)
-UserPlace.create(user_id: 3, place_id:2, rating: 3)
-UserPlace.create(user_id: 4, place_id:2, rating: 2)
-UserPlace.create(user_id: 1, place_id:2, rating: 5)
 
-
-
+require 'rest-client'
+require 'json'
+require 'byebug'
 
 
 response_hash =
@@ -3697,5 +3668,25 @@ response_hash =
     "server_timestamp": "2018-09-12T15:25:50+00:00"
 }
 
+# def get_cities
+#   # t = ENV['TRAVEL_API']
+#   # byebug
+#   response_string = RestClient.get('https://api.sygictravelapi.com/1.0/en/places/list?parents=city:186&level=poi&limit=100', headers={'x-api-key': ENV['TRAVEL_API']})
+#
+#   response_hash = JSON.parse(response_string)
+# end
 
-response_hash[:data][:places].map {|hash| Place.create(desc: hash[:perex], name: hash[:name], average_rating: hash[:rating].round(2), lat: hash[:location][:lat].round(4), lng: hash[:location][:lng].round(4), img_url: hash[:thumbnail_url])}
+# def make_places
+#   get_cities.map do |info|
+#     Place.new()
+# end
+
+
+# p get_cities['data']["places"].map {|hash| hash['rating']}
+# get_cities['data']["places"].map {|hash|  hash['rating'].round(4)}
+
+# p response_hash[:data][:places].map {|hash| hash[:location][:lat].round(4)}
+p response_hash[:data][:places].map {|hash| hash[:location][:lng].round(4)}
+# get_cities['data']["places"].map {|hash| hash["location"]["lng"]}
+# p response_hash[:data][:places].map {|hash| [hash[:perex], hash[:name], hash[:rating].round(2), hash[:location][:lat].round(4), hash[:location][:lng].round(4), hash[:thumbnail_url]]}
+# p response_hash[:data][:places].map {|hash| desc: hash[:perex], name: hash[:name], average_ranking: hash[:rating].round(2), lat: hash[:location][:lat].round(4), lng: [:location][:lng].round(4), img_url: hash[:thumbnail_url]}

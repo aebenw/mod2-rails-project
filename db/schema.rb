@@ -14,9 +14,10 @@ ActiveRecord::Schema.define(version: 2018_09_10_145334) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
-    t.float "average_ranking"
-    t.decimal "lat", precision: 15, scale: 10
-    t.decimal "lng", precision: 15, scale: 10
+    t.float "average_rating"
+    t.decimal "lat", precision: 6, scale: 4
+    t.decimal "lng", precision: 6, scale: 4
+    t.string "desc"
     t.string "kind"
     t.string "img_url"
     t.datetime "created_at", null: false
@@ -36,8 +37,8 @@ ActiveRecord::Schema.define(version: 2018_09_10_145334) do
     t.string "name"
     t.string "password_digest"
     t.string "email"
-    t.decimal "lat", precision: 15, scale: 10
-    t.decimal "lng", precision: 15, scale: 10
+    t.decimal "lat", precision: 6, scale: 4
+    t.decimal "lng", precision: 6, scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

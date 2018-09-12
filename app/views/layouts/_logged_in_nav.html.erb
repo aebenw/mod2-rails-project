@@ -9,7 +9,7 @@
     <li><a href="#">Page 2</a></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
-    <li><a href="users/<%= session[:id] %>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    <li><a href="users/<%= session[:user_id] %>"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
     <li><%= link_to logout_path, method: :delete do %>
       <span class="glyphicon glyphicon-log-in">
         <%= label_tag "Logout" %>

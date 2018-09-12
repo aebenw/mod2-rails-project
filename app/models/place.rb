@@ -3,16 +3,20 @@ class Place < ApplicationRecord
   has_many :users, through: :user_places
 
 
-  def average_rating
+  def av_rating
+
     if self.user_places.any?
       nums = self.user_places.map {|uspl| uspl.rating}.compact!
+
       if nums != nil && nums.any?
-      average = nums.reduce(:+)/nums.size
-      else "Not yet Rated"
+        self.average_rating = (self.average_rating + nums.reduce(:+))/(nums.size + 1)
+      else
+        return self.average_rating
       end
-    else "Not yet Rated"
+
+    else
+      return self.average_rating
     end
   end
-
 
 end
