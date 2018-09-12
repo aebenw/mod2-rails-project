@@ -1,0 +1,70 @@
+    <style>
+    body{
+    background:gray;
+    }
+
+    form{
+        width:400px;
+        height: 450px;
+    }
+    .form-holder{
+        background: skyblue;
+        width:450px;
+        height:400px;
+    }
+
+    h1{
+        margin-bottom: 15px;
+    }
+    
+    </style>
+    
+    
+    <center id="c">
+    <h1 class="mb-10">Create Your Account</h1>
+    <div class="form-holder">
+<%= form_for @user do |f| %>
+    <div class="form-group">
+    <%= f.label :name %>
+    <br>
+    <%= f.text_field :name , class: "form-control", id: "name"%>
+    </div> 
+    <br>
+    <div class="form-group">
+    <%= f.label :email %>
+    <br>
+    <%= f.text_field :email , class: "form-control", id: "email"%>
+    </div> 
+    <br>
+    <div class="form-group">
+    <%= f.label :password %>
+    <br>
+    <%= f.text_field :password , class: "form-control", id:"password"%>
+    </div> 
+    <br>
+    
+    <%= f.submit class:"btn btn-primary", id: "sub-btn" %>
+
+<% end %>
+</div>
+</center>
+
+<script>
+
+$(document).ready(function(){
+ $('#sub-btn').click(function(e){
+     
+     if($('#name').val() == "" || $('#email').val() == "" || $('#password').val() == ""){
+         e.preventDefault();
+
+        $('#c').effect("shake", "fast");
+        
+     }
+   
+ });
+
+});
+
+
+
+</script>

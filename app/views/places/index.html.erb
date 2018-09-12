@@ -1,0 +1,148 @@
+<style>
+body{
+    background:#bad0f4;
+}
+ #map{
+	 height:600px;
+     width:800px;
+     float:right;
+     margin-top: 26px;
+    
+ }
+ #out{
+	 height:300px;
+	 width:300px;
+ }
+ 
+ #map-container{
+    float:right;
+ }
+
+ 
+ img{
+     height: 300px;
+     width: 300px;
+ }
+
+
+</style>
+
+
+
+
+<div id="map-container">
+
+<div id="map"></div>
+<br>
+
+<div id="out"></div><br><hr>
+</div>
+
+
+
+<% @places.each do |e| %>
+    
+    
+    <div class="card" style="width:500px">
+    <img class="card-img-top" src="<%= e.img_url %>" alt="Card image">
+    <div class="card-img-overlay">
+      <h4 class="card-title"> <%= e.name %></h4>
+      <p class="card-text">Ranking <%= e.average_ranking %></p>
+      <a href="#" class="btn btn-primary">See Deatils</a>
+      <input type="hidden" class="lat-div" value="<%=e.lat%>" >
+      <input type="hidden" class="lng-div" value="<%=e.lng%>" >
+      
+
+    </div>
+  </div>
+    
+    <% end %>
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function initMap(){
+    
+    var options = {
+        zoom:12,
+        center: {lat:40.7128, lng: -74.0060}
+    };
+
+    
+    var map = new google.maps.Map(document.getElementById('map'), options);
+    
+    var marker = new google.maps.Marker({
+        position: {lat:40.7128, lng:-74.0060},
+        map: map
+    });
+
+    var markers = [];
+
+    for(var i = 0; i < markers.length; i++ ){
+    addMarker(markers[i]);
+    }
+
+        function addMarker(coords){
+        var lats = document.getElementsByClassName('lat-div');
+        var lngs = document.getElementsByClassName('lng-div');
+
+        for(var i = 0; i < lats.length;i++){
+            
+               
+               markers.push({lat: lats[i].value, lng: lngs[i].value}) 
+
+          
+        }
+
+        
+        var marker = new google.maps.Marker({
+                    position: coords, 
+                    map: map
+                });
+        
+        
+}
+
+   
+
+
+
+    
+   }
+
+   
+     
+   
+
+  
+
+  
+
+    
+    
+
+   
+
+
+
+</script>
+
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPdhJ7Z6pwRpxtlHG4aYSf2T7XivLBpiY&callback=initMap">
+</script>
