@@ -5,11 +5,6 @@ class CreateUserPlaces < ActiveRecord::Migration[5.2]
       t.integer :place_id
       t.float :rating
       t.float :distance
-<<<<<<< HEAD
-
-       
-=======
->>>>>>> Eben
       t.timestamps
     end
   end

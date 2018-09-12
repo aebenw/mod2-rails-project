@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
@@ -23,16 +23,13 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-<<<<<<< HEAD
- gem 'bcrypt', '~> 3.1.7'
-=======
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'dotenv-rails'
 gem "json"
 gem "rest-client"
 
->>>>>>> 5d8e67a094762d32521d0c761b20127aa5392ba0
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
