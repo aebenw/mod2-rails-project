@@ -1,9 +1,71 @@
-<h1>Login</h1>
-<%= form_tag ("/sessions") do  %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Log in!" %>
+<style>
+body{
+background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
+}
 
-  <% end %>
+form{
+    width:400px;
+    height: 450px;
+}
+.form-holder{
+    background: skyblue;
+    width:450px;
+    height:400px;
+}
+
+h1{
+    margin-bottom: 15px;
+}
+
+.flash {
+  color:red;
+  }
+
+</style>
+
+<% if flash[:notice] %>
+<center><h3 class="flash"><%= flash[:notice] %></h3></center>
+<% end  %>
+<center id="c">
+<h1 class="mb-10">Login</h1>
+<div class="form-holder">
+<%= form_tag ('/sessions') do %>
+<br>
+<div class="form-group">
+<%= label_tag :email %>
+<br>
+<%= text_field_tag :email, "", class: "form-control", id: "email"%>
+</div>
+<br>
+<div class="form-group">
+<%= label_tag :password %>
+<br>
+<%= password_field_tag :password, "", class: "form-control", id:"password"%>
+</div>
+<br>
+
+<%= submit_tag "Log in", class:"btn btn-primary", id: "sub-btn" %>
+
+<% end %>
+</div>
+</center>
+
+<script>
+
+$(document).ready(function(){
+$('#sub-btn').click(function(e){
+
+ if($('#name').val() == "" || $('#email').val() == "" || $('#password').val() == ""){
+     e.preventDefault();
+
+    $('#c').effect("shake", "fast");
+
+ }
+
+});
+
+});
+
+
+
+</script>

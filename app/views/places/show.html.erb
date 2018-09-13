@@ -1,4 +1,137 @@
 
+<style>
+
+
+ #grad {
+   background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
+  }
+
+ #map{
+	 height:300px;
+     width:450px;
+     float:right;
+     margin-top: 26px;
+     margin-right: 26px;
+
+ }
+ #out{
+	 height:300px;
+	 width:300px;
+ }
+
+ #map-container{
+    float:right;
+ }
+
+
+ img{
+     height: 300px;
+     width: 300px;
+ }
+
+.pads {
+  margin-top: 26px;
+  margin-left: 26px;
+}
+
+
+</style>
+
+
+<body id='grad'>
+
+
+
+
+
+<div id="map-container" >
+
+<div id="map" ></div>
+<br>
+
+<div id="out"></div><br><hr>
+</div>
+
+<div class="pads">
+
+<img src=<%= url_for(@place.img_url) %></br>
+
 <h2><%= @place.name %></h2>
 <h3>Average User Rating: <%= @place.average_rating %></h3>
 <h2><%= button_to "Add Place to Profile", add_up_path(@place.id)  %></h2>
+
+</div>
+
+<script>
+
+function initMap(){
+
+    var options = {
+        zoom:12.5,
+        center: {lat:40.7128, lng: -74.0060}
+    };
+
+
+    var map = new google.maps.Map(document.getElementById('map'), options);
+
+    var marker = new google.maps.Marker({
+        position: {lat:40.7128, lng:-74.0060},
+        map: map
+    });
+
+    var markers = [];
+
+    for(var i = 0; i < markers.length; i++ ){
+    addMarker(markers[i]);
+    }
+
+        function addMarker(coords){
+        var lats = document.getElementsByClassName('lat-div');
+        var lngs = document.getElementsByClassName('lng-div');
+
+        for(var i = 0; i < lats.length;i++){
+
+
+               markers.push({lat: lats[i].value, lng: lngs[i].value})
+
+
+        }
+
+
+        var marker = new google.maps.Marker({
+                    position: coords,
+                    map: map
+                });
+
+
+}
+
+
+
+
+
+
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPdhJ7Z6pwRpxtlHG4aYSf2T7XivLBpiY&callback=initMap">
+</script>

@@ -1,13 +1,17 @@
 
 <style>
-body{
-    background:#bad0f4;
-}
+
+
+ #grad {
+   background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
+  }
+
  #map{
-	 height:600px;
-     width:800px;
+	 height:300px;
+     width:450px;
      float:right;
      margin-top: 26px;
+     margin-right: 26px;
 
  }
  #out{
@@ -25,15 +29,31 @@ body{
      width: 300px;
  }
 
+ form .btn {
+   background-color: blue;
+ }
+ .btn-primary{
+   color: black;
+
+
+ }
+
+ .btn:hover {
+  color:green;
+}
 
 </style>
 
 
+<body id='grad'>
 
 
-<div id="map-container">
 
-<div id="map"></div>
+
+
+<div id="map-container" >
+
+<div id="map" ></div>
 <br>
 
 <div id="out"></div><br><hr>
@@ -44,12 +64,13 @@ body{
 <% @places.each do |e| %>
 
 
-    <div class="card" style="width:500px">
-    <img class="card-img-top" src="<%= e.img_url %>" alt="Card image">
+    <div class="card" style="width:300px; margin-bottom: 30px;">
+
     <div class="card-img-overlay">
-      <h4 class="card-title"> <%= e.name %></h4>
+      <h4 class="card-title"> <%= e.name %></h4>    
+      <img class="card-img-top" src=<%= url_for(e.img_url) %> alt="Card image">
       <p class="card-text">Ranking <%= e.average_rating %></p>
-      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary" %>
+      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary", id: 'btn' %>
       <input type="hidden" class="lat-div" value="<%=e.four_dec_lat%>" >
       <input type="hidden" class="lng-div" value="<%=e.four_dec_lng%>" >
 
@@ -58,6 +79,8 @@ body{
   </div>
 
     <% end %>
+
+    </body>
 
 
 
@@ -147,9 +170,3 @@ function initMap(){
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPdhJ7Z6pwRpxtlHG4aYSf2T7XivLBpiY&callback=initMap">
 </script>
-
-
-<% @places.each do |pl| %>
-<h2><%= link_to pl.name, place_path(pl) %></h2>
-<h3>Average User Rating: <%= pl.av_rating %></h3>
-<% end %>

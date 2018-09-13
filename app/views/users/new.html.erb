@@ -1,6 +1,6 @@
     <style>
     body{
-    background:gray;
+  background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
     }
 
     form{
@@ -16,10 +16,10 @@
     h1{
         margin-bottom: 15px;
     }
-    
+
     </style>
-    
-    
+
+
     <center id="c">
     <h1 class="mb-10">Create Your Account</h1>
     <div class="form-holder">
@@ -28,21 +28,21 @@
     <%= f.label :name %>
     <br>
     <%= f.text_field :name , class: "form-control", id: "name"%>
-    </div> 
+    </div>
     <br>
     <div class="form-group">
     <%= f.label :email %>
     <br>
     <%= f.text_field :email , class: "form-control", id: "email"%>
-    </div> 
+    </div>
     <br>
     <div class="form-group">
     <%= f.label :password %>
     <br>
     <%= f.text_field :password , class: "form-control", id:"password"%>
-    </div> 
+    </div>
     <br>
-    
+
     <%= f.submit class:"btn btn-primary", id: "sub-btn" %>
 
 <% end %>
@@ -53,14 +53,14 @@
 
 $(document).ready(function(){
  $('#sub-btn').click(function(e){
-     
+
      if($('#name').val() == "" || $('#email').val() == "" || $('#password').val() == ""){
          e.preventDefault();
 
         $('#c').effect("shake", "fast");
-        
+
      }
-   
+
  });
 
 });
