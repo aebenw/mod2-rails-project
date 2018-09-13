@@ -2,8 +2,7 @@ class Place < ApplicationRecord
   has_one_attached :img_url
   has_many :user_places
   has_many :users, through: :user_places
-<<<<<<< HEAD
-=======
+  has_many :make_places
 
 
   def av_rating
@@ -22,5 +21,14 @@ class Place < ApplicationRecord
     end
   end
 
->>>>>>> Eben
+  def four_dec_lat
+    self.lat = self.lat.truncate(4).to_s.to_f
+  end
+
+  def four_dec_lng
+    self.lng = self.lng.truncate(4).to_s.to_f
+  end
+
+
+
 end

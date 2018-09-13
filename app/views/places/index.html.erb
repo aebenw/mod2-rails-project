@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <style>
 body{
     background:#bad0f4;
@@ -48,10 +48,10 @@ body{
     <img class="card-img-top" src="<%= e.img_url %>" alt="Card image">
     <div class="card-img-overlay">
       <h4 class="card-title"> <%= e.name %></h4>
-      <p class="card-text">Ranking <%= e.average_ranking %></p>
-      <a href="#" class="btn btn-primary">See Deatils</a>
-      <input type="hidden" class="lat-div" value="<%=e.lat%>" >
-      <input type="hidden" class="lng-div" value="<%=e.lng%>" >
+      <p class="card-text">Ranking <%= e.average_rating %></p>
+      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary" %>
+      <input type="hidden" class="lat-div" value="<%=e.four_dec_lat%>" >
+      <input type="hidden" class="lng-div" value="<%=e.four_dec_lng%>" >
 
 
     </div>

@@ -3686,7 +3686,7 @@ response_hash =
 # get_cities['data']["places"].map {|hash|  hash['rating'].round(4)}
 
 # p response_hash[:data][:places].map {|hash| hash[:location][:lat].round(4)}
-p response_hash[:data][:places].map {|hash| hash[:location][:lng].round(4)}
+p response_hash[:data][:places].map {|hash| hash[:location][:lat].round(4)}.first.round(4)
 # get_cities['data']["places"].map {|hash| hash["location"]["lng"]}
 # p response_hash[:data][:places].map {|hash| [hash[:perex], hash[:name], hash[:rating].round(2), hash[:location][:lat].round(4), hash[:location][:lng].round(4), hash[:thumbnail_url]]}
 # p response_hash[:data][:places].map {|hash| desc: hash[:perex], name: hash[:name], average_ranking: hash[:rating].round(2), lat: hash[:location][:lat].round(4), lng: [:location][:lng].round(4), img_url: hash[:thumbnail_url]}

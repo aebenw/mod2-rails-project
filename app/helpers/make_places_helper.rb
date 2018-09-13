@@ -1,0 +1,2 @@
+module MakePlacesHelper
+end
