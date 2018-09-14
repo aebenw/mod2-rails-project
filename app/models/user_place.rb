@@ -1,6 +1,4 @@
 class UserPlace < ApplicationRecord
   belongs_to :user
-
-  belongs_to :place
-
+  belongs_to :place 
 end

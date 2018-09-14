@@ -1,0 +1,32 @@
+
+
+<center id="c">
+<h1 class="mb-10">Add a destination</h1>
+<div class="form-holder">
+<%= form_for @place do |f| %>
+<div class="form-group">
+<%= f.label :name %>
+<br>
+<%= f.text_field :name , class: "form-control", id: "name"%>
+</div> 
+<br>
+<div class="form-group">
+<%= f.label :average_ranking %>
+<br>
+<%= f.text_field :average_ranking , class: "form-control", id:"average_ranking" %>
+</div> 
+<br>
+
+
+<div class="form-group">
+<%= f.label :img_url %>
+<br>
+<%= f.file_field :img_url , class: "form-control"%>
+</div> 
+<br>
+
+<%= f.submit class:"btn btn-primary", id: "place-btn" %>
+
+<% end %>
+</div>
+</center>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :users, except: [:index]
-  resources :places, only: [:show, :index]
+  resources :places, only: [:show, :index,:new,:create, :edit, :update]
 
   root "places#index"
 
