@@ -32,8 +32,26 @@ ActiveRecord::Schema.define(version: 2018_09_12_052925) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
+<<<<<<< HEAD
 
   create_table "places", force: :cascade do |t|
+=======
+
+  create_table "make_places", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.float "average_rating"
+    t.decimal "lat", precision: 6, scale: 4
+    t.decimal "lng", precision: 6, scale: 4
+    t.string "desc"
+    t.string "kind"
+>>>>>>> master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"

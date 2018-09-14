@@ -54,5 +54,8 @@ def place_params
   params.require(:place).permit(:name, :average_ranking, :lat,:lng, :kind, :img_url)
 end 
 
+  def place_params
+    params.require(:place).permit(:name,:average_ranking, :lat, :lng, :kind, :img_url)
+ end
 
 end

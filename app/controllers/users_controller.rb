@@ -19,10 +19,6 @@ class UsersController < ApplicationController
   
   end
 
-  def show
-    #profile page
-    set_user
-  end
 
   def edit
     @user = User.find(params[:id])
@@ -43,11 +39,12 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  def loggin_necessary
+   private
 
-  end
+   def user_params
+    params.require(:user).permit(:name,:email,:password,:lat,:lng)
+   end
 
-  private
 
   def user_params
   params.require(:user).permit(:name,:email,:password)
