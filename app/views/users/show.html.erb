@@ -24,7 +24,7 @@
         <% end %>
         <p class="card-text">Ranking <%= made.place.average_rating %></p>
         <p class="card-text">User Adds: <%= made.place.popularity %></p>
-        <%= button_to "See Details", place_path(made.place.id), method: :get, form_class: "btn btn-primary", id: 'btn' %>
+        <%= button_to "See Details", place_path(made.place.id), method: :get, form_class: "btn", id: 'btn' %>
         <input type="hidden" class="lat-div" value="<%=made.place.four_dec_lat%>" >
         <input type="hidden" class="lng-div" value="<%=made.place.four_dec_lng%>" >
 

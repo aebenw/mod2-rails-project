@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_12_052925) do
+ActiveRecord::Schema.define(version: 2018_09_13_143701) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -32,10 +32,6 @@ ActiveRecord::Schema.define(version: 2018_09_12_052925) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-<<<<<<< HEAD
-
-  create_table "places", force: :cascade do |t|
-=======
 
   create_table "make_places", force: :cascade do |t|
     t.integer "user_id"
@@ -51,17 +47,15 @@ ActiveRecord::Schema.define(version: 2018_09_12_052925) do
     t.decimal "lng", precision: 6, scale: 4
     t.string "desc"
     t.string "kind"
->>>>>>> master
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.float "average_ranking"
-    t.float "lat"
-    t.float "lng"
-    t.string "kind"
   end
 
   create_table "user_places", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "place_id"
+    t.float "rating"
+    t.float "distance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,11 +63,11 @@ ActiveRecord::Schema.define(version: 2018_09_12_052925) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
+    t.string "email"
+    t.decimal "lat", precision: 6, scale: 4
+    t.decimal "lng", precision: 6, scale: 4
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
-    t.decimal "lat"
-    t.decimal "lng"
   end
 
 end

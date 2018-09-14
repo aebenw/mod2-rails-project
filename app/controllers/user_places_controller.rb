@@ -14,7 +14,6 @@ class UserPlacesController < ApplicationController
   end
 
   def rank
-    byebug
     set_up
     @up.update(rating: params[:rank][0])
     redirect_to user_path(session[:user_id])
