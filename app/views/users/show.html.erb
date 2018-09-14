@@ -1,14 +1,28 @@
 
 
 <h1><%= @user.name %></h1>
-<% if @user.places.any? || @user.made_places.any? %>
+<% if @user.places.any? || @user.make_places.any? %>
 
   <% if @user.make_places.any? %>
     <h3>Places You've Created</h3>
       <% @user.make_places.map do |made| %>
-      <br /><p>
-        <%= link_to made.place.name, place_path(made.place.id) %></p><br />
-        Amount of User Adds: <p class="number"><%= made.place.popularity %></p>
+      <div class="card" style="width:300px; margin-bottom: 30px;">
+
+      <div>
+        <h4 class="card-title"> <%= made.place.name %></h4>
+        <% if made.place.img_url %>
+        <img class="card-img-top" src=<%= url_for(made.place.img_url) %> alt="Card image">
+        <% end %>
+        <p class="card-text">Ranking <%= made.place.average_rating %></p>
+        <p class="card-text">User Adds: <%= made.place.popularity %></p>
+        <%= button_to "See Details", place_path(made.place.id), method: :get, form_class: "btn btn-primary", id: 'btn' %>
+        <input type="hidden" class="lat-div" value="<%=made.place.four_dec_lat%>" >
+        <input type="hidden" class="lng-div" value="<%=made.place.four_dec_lng%>" >
+
+
+      </div>
+    </div>
+
       <% end %>
 
   <% end %>
@@ -16,7 +30,18 @@
 <h3>Your Saved Places</h3>
 
   <% @user.places.map do |place| %>
-  <br /><%= link_to place.name, place_path(place.id) %><br />
+  <div class="card" style="width:300px; margin-bottom: 30px;">
+
+  <div>
+    <h4 class="card-title"> <%= place.name %></h4>
+    <% if place.img_url %>
+    <img class="card-img-top" src=<%= url_for(place.img_url) %> alt="Card image">
+    <% end %>
+    <p class="card-text">Ranking <%= place.average_rating %></p>
+
+    <%= button_to "See Details", place_path(place.id), method: :get, class: "btn btn-primary", id: 'btn' %>
+    <input type="hidden" class="lat-div" value="<%=place.four_dec_lat%>" >
+    <input type="hidden" class="lng-div" value="<%=place.four_dec_lng%>" >
     <% up = find_up(user: @user.id, place: place.id) %>
 
     <% if up.rating != nil  %>
@@ -27,6 +52,7 @@
   <%= select_tag "rank[]", options_for_select((1..5)) %>
   <%= submit_tag "Rate This Place" %>
   <% end %>
+
   <%= link_to "Remove from your List", delete_up_path(place.id), method: :delete%><br />
   <% end %>
   <% end  %>

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :make_places
   resources :users, except: [:index]
   resources :places, only: [:show, :index, :new, :create]
   resources :sessions, only: [:delete, :create]

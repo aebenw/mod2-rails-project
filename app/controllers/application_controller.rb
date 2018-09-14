@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include ActiveModel::SecurePassword
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :find_up
 
   def current_user
     if session[:user_id]

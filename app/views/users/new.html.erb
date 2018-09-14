@@ -1,4 +1,9 @@
 
+<% if @user.errors.any? %>
+<% @user.errors.full_messages do |mess|%>
+<h4 class="flash"><%= mess %></h4>
+<% end %>
+<% end %>
 
     <center id="c">
     <h1 class="mb-10">Create Your Account</h1>
@@ -19,7 +24,13 @@
     <div class="form-group">
     <%= f.label :password %>
     <br>
-    <%= f.text_field :password , class: "form-control", id:"password"%>
+    <%= f.password_field :password, class: "form-control", id:"password"%>
+    </div>
+    <br>
+    <div class="form-group">
+    <%= f.label :password_confirmation, "Password Confirmation" %>
+    <br>
+    <%= f.password_field :password_confirmation , class: "form-control", id:"password"%>
     </div>
     <br>
 
