@@ -1,5 +1,50 @@
 
-  #grad {
+body{
+    background:blue;
+}
+ #map{
+	 height:600px;
+     width:800px;
+     float:right;
+     margin-top: 26px;
+
+ }
+ #out{
+	 height:300px;
+	 width:300px;
+ }
+
+ #map-container{
+    float:right;
+ }
+
+
+ img{
+     height: 300px;
+     width: 300px;
+ }
+
+ #floating-panel {
+
+    top: 10px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+  #floating-panel {
+
+  }
+
+
+
+
+#grad {
     background-image: linear-gradient(#e3f2fd, #4f7cf9);
    }
 

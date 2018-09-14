@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :users, except: [:index]
-  resources :places, only: [:show, :index, :new, :create]
+  resources :places, only: [:show, :index, :new, :create, :edit, :update]
   resources :sessions, only: [:delete, :create]
 
   root "places#index"

@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-  include ActiveModel::SecurePassword
-  has_secure_password validations: true
+
+  has_secure_password
   before_action :require_login, only: [:show]
-
-
   def new
     @user = User.new
   end
