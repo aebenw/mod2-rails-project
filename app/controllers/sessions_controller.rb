@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-class SessionsController < ApllicationController
-=======
 class SessionsController < ApplicationController
   include ActiveModel::SecurePassword
   has_secure_password
@@ -33,6 +30,5 @@ class SessionsController < ApplicationController
     params.permit(:password_digest, :email)
   end
 
->>>>>>> Eben
 
 end

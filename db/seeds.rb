@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #
 require 'faker'
+
 # Place.create(name: "Empire State", lat:40.7484, lng: 73.9857, kind: "historic")
 # Place.create(name: "Statue of Liberty", lat:40.6892, lng: 74.0445, kind: "historic")
 # Place.create(name: "Staten Island", lat:40.546, lng: 73.9843, kind: "entertainment")
@@ -3698,4 +3699,11 @@ response_hash =
 }
 
 
-response_hash[:data][:places].map {|hash| Place.create(desc: hash[:perex], name: hash[:name], average_rating: hash[:rating].round(2), lat: hash[:location][:lat].round(4), lng: hash[:location][:lng].round(4), img_url: hash[:thumbnail_url])}
+
+
+response_hash[:data][:places].map {|hash| Place.create(desc: hash[:perex], name: hash[:name], average_rating: hash[:rating].round(2), lat: hash[:location][:lat].round(4), lng: hash[:location][:lng].round(4))}
+
+
+
+Place.all.each {|place| place.four_dec_lng}
+Place.all.each {|place| place.four_dec_lat}

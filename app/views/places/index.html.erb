@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <style>
 body{
     background:#bad0f4;
@@ -8,18 +8,18 @@ body{
      width:800px;
      float:right;
      margin-top: 26px;
-    
+
  }
  #out{
 	 height:300px;
 	 width:300px;
  }
- 
+
  #map-container{
     float:right;
  }
 
- 
+
  img{
      height: 300px;
      width: 300px;
@@ -42,25 +42,25 @@ body{
 
 
 <% @places.each do |e| %>
-    
-    
+
+
     <div class="card" style="width:500px">
     <img class="card-img-top" src="<%= e.img_url %>" alt="Card image">
     <div class="card-img-overlay">
       <h4 class="card-title"> <%= e.name %></h4>
-      <p class="card-text">Ranking <%= e.average_ranking %></p>
-      <a href="#" class="btn btn-primary">See Deatils</a>
-      <input type="hidden" class="lat-div" value="<%=e.lat%>" >
-      <input type="hidden" class="lng-div" value="<%=e.lng%>" >
-      
+      <p class="card-text">Ranking <%= e.average_rating %></p>
+      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary" %>
+      <input type="hidden" class="lat-div" value="<%=e.four_dec_lat%>" >
+      <input type="hidden" class="lng-div" value="<%=e.four_dec_lng%>" >
+
 
     </div>
   </div>
-    
+
     <% end %>
-    
-    
-    
+
+
+
 
 
 
@@ -77,15 +77,15 @@ body{
 <script>
 
 function initMap(){
-    
+
     var options = {
         zoom:12,
         center: {lat:40.7128, lng: -74.0060}
     };
 
-    
+
     var map = new google.maps.Map(document.getElementById('map'), options);
-    
+
     var marker = new google.maps.Marker({
         position: {lat:40.7128, lng:-74.0060},
         map: map
@@ -102,41 +102,41 @@ function initMap(){
         var lngs = document.getElementsByClassName('lng-div');
 
         for(var i = 0; i < lats.length;i++){
-            
-               
-               markers.push({lat: lats[i].value, lng: lngs[i].value}) 
 
-          
+
+               markers.push({lat: lats[i].value, lng: lngs[i].value})
+
+
         }
 
-        
+
         var marker = new google.maps.Marker({
-                    position: coords, 
+                    position: coords,
                     map: map
                 });
-        
-        
+
+
 }
 
-   
 
 
 
-    
+
+
    }
 
-   
-     
-   
 
-  
 
-  
 
-    
-    
 
-   
+
+
+
+
+
+
+
+
 
 
 
@@ -147,9 +147,9 @@ function initMap(){
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPdhJ7Z6pwRpxtlHG4aYSf2T7XivLBpiY&callback=initMap">
 </script>
-=======
+
+
 <% @places.each do |pl| %>
 <h2><%= link_to pl.name, place_path(pl) %></h2>
 <h3>Average User Rating: <%= pl.av_rating %></h3>
 <% end %>
->>>>>>> 5d8e67a094762d32521d0c761b20127aa5392ba0
