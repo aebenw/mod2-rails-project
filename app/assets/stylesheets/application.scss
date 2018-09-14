@@ -14,8 +14,13 @@ body{
 	 width:300px;
  }
 
- #map-container{
-    float:right;
+ #user-map {
+   height:300px;
+     width:450px;
+     float:right;
+     margin-top: 26px;
+     margin-right: 16px;
+
  }
 
 
@@ -37,9 +42,6 @@ body{
     line-height: 30px;
     padding-left: 10px;
   }
-  #floating-panel {
-
-  }
 
 
 
@@ -56,13 +58,14 @@ body{
       margin-right: 26px;
 
   }
-  #out{
- 	 height:300px;
- 	 width:300px;
-  }
+
 
   #map-container{
      float:right;
+  }
+
+  #format {
+    float: left;
   }
 
 

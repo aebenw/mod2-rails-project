@@ -5,30 +5,36 @@
       <button id="drop" onclick="drop()" class="btn btn-success">Drop Markers</button>
     </div>
 <div id="user-map"></div>
+</div>
 <br>
 
-    </div>
-<br>
-<h1>Mapples you have created</h1>
-<br><hr>
-    <h2><%= @place.name %></h2>
+
+<div class="card" style="width:300px; margin-bottom: 30px;">
+
+<div id="format">
 
 
+  <h3 class="card-title" style="color:olive;"> <%= @place.name %></h3>
+  <% if @place.img_url %>
+  <img class="card-img-top" src=<%= url_for(@place.img_url) %> alt="Card image">
+  <% end %>
+  <% if @place.average_rating %>
+  <p class="card-text">Rating <%= @place.average_rating %></p>
+  <% end %>
 
-      <div class="card" style="width:500px">
-      <img src=<%= url_for(@place.img_url) %> class="image-responsive">
-      <div class="card-img-overlay">
-        <h4 class="card-title"> <%= @place.name %></h4>
-        <p class="card-text">Ranking <%= @place.average_ranking %></p>
-        <a href="#" class="btn btn-primary">See Deatils</a>
-        <input type="hidden" class="lat-div" value="<%= @place.lat %>" >
-        <input type="hidden" class="lng-div" value="<%= @place.lng %>" >
-        <input type="hidden" class="title" value="<%= @place.name %>" >
+  <% if @place.desc %>
+  <p class="card-text"><%= @place.desc %></h3>
+  <% end %>
 
+<% if !(MakePlace.find_by(user_id: session[:user_id], place_id: @place.id)) %>
+<p><%= button_to "Add Place to Profile", add_up_path(@place.id), form_class: "btn", id: 'btn'  %>
+<% else %>
+</p class="card-text">
+Number of User Adds <%= @place.popularity %>
+<% end %>
 
-
-      </div>
-    </div>
+</div>
+</div>
 
 
 

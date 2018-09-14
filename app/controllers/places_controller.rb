@@ -6,6 +6,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @place.reload
   end
 
   def new
@@ -16,8 +17,8 @@ class PlacesController < ApplicationController
 def create
   @place = Place.new(place_params)
   if @place.save
+    MakePlace.create(user_id: session[:user_id], place_id: @place.id)
     redirect_to place_path(@place)
-
   else
     render :new
   end
@@ -44,9 +45,7 @@ end
 
 private
 
-def place_params
-  params.require(:place).permit(:name, :average_ranking, :lat,:lng, :kind, :img_url)
-end
+
 
   def place_params
     params.require(:place).permit(:name,:average_rating, :lat, :lng, :kind, :img_url, :average_rating, :desc)

@@ -22,13 +22,17 @@
     <div class="card" style="width:300px; margin-bottom: 30px;">
 
     <div>
-      <h4 class="card-title"> <%= e.name %></h4>
+      <h3 class="card-title" style="color:olive;"> <%= e.name %></h3>
       <% if e.img_url %>
       <img class="card-img-top" src=<%= url_for(e.img_url) %> alt="Card image">
       <% end %>
-      <p class="card-text">Ranking <%= e.average_rating %></p>
-      <p class="card-text">User Adds: <%= e.popularity %></p>
-      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary", id: 'btn' %>
+      <% if e.average_rating %>
+      <p class="card-text">Rating <%= e.average_rating %></p>
+      <% end %>
+      <% if e.popularity %>
+      <h4 class="card-text">User Adds: <%= e.popularity %></h4>
+      <% end %>
+      <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn", id: 'btn' %>
       <input type="hidden" class="lat-div" value="<%=e.four_dec_lat%>" >
       <input type="hidden" class="lng-div" value="<%=e.four_dec_lng%>" >
 
