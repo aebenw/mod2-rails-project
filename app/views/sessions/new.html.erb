@@ -1,27 +1,4 @@
-<style>
-body{
-background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
-}
 
-form{
-    width:400px;
-    height: 450px;
-}
-.form-holder{
-    background: skyblue;
-    width:450px;
-    height:400px;
-}
-
-h1{
-    margin-bottom: 15px;
-}
-
-.flash {
-  color:red;
-  }
-
-</style>
 
 <% if flash[:notice] %>
 <center><h3 class="flash"><%= flash[:notice] %></h3></center>

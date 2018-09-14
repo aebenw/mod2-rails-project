@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include ActiveModel::SecurePassword
-  helper_method :current_user, :logged_in?, :find_up, :four_dec
+  helper_method :current_user, :logged_in?
 
   def current_user
     if session[:user_id]
@@ -22,15 +22,5 @@ class ApplicationController < ActionController::Base
   def find_up(place:, user:)
     @up = UserPlace.find_by(place_id: place, user_id: user)
   end
-
-  def four_dec_lat
-    self.lat.truncate(4).to_s.to_f
-  end
-
-  def four_dec_lng
-    self.lng.truncate(4).to_s.to_f
-  end
-
-
 
 end

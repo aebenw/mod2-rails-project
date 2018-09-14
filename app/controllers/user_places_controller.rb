@@ -1,5 +1,6 @@
 class UserPlacesController < ApplicationController
   before_action :require_login
+
   def add
     @place = Place.find(params[:id])
     UserPlace.create(user_id: session[:user_id], place_id: @place.id)
@@ -18,7 +19,6 @@ class UserPlacesController < ApplicationController
     @up.update(rating: params[:rank][0])
     redirect_to user_path(session[:user_id])
   end
-
 
   private
   def set_up

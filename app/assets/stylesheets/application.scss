@@ -1,7 +1,4 @@
 
-
-
-
   #grad {
     background-image: linear-gradient(#e3f2fd, #4f7cf9);
    }
@@ -43,6 +40,39 @@
  }
 
  h4 {
+   font-family: "Arial", sans-serif;
+
+ }
+
+ .pads {
+   margin-top: 26px;
+   margin-left: 26px;
+ }
+
+ form{
+     width:400px;
+     height: 450px;
+ }
+ .form-holder{
+     background: skyblue;
+     width:450px;
+     height:400px;
+ }
+
+ h1{
+     margin-bottom: 15px;
+ }
+
+ .flash {
+   color:red;
+  }
+
+ .number {
+   color:green;
+ }
+
+
+ .word {
    font-family: "Arial", sans-serif;
 
  }

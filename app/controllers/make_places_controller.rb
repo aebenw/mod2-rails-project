@@ -4,10 +4,4 @@ class MakePlacesController < ApplicationController
     self.place.user_places.count
   end
 
-  # def rating
-  #   self.plac
-  # end
-
-
-
 end
