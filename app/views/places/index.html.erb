@@ -1,51 +1,4 @@
 
-<style>
-
-
- #grad {
-   background-image: linear-gradient(to bottom right, rgb(145, 254, 61), rgb(193, 240, 254));
-  }
-
- #map{
-	 height:300px;
-     width:450px;
-     float:right;
-     margin-top: 26px;
-     margin-right: 26px;
-
- }
- #out{
-	 height:300px;
-	 width:300px;
- }
-
- #map-container{
-    float:right;
- }
-
-
- img{
-     height: 300px;
-     width: 300px;
- }
-
- form .btn {
-   background-color: blue;
- }
- .btn-primary{
-   color: black;
-
-
- }
-
- .btn:hover {
-  color:green;
-}
-
-</style>
-
-
-<body id='grad'>
 
 
 
@@ -66,10 +19,13 @@
 
     <div class="card" style="width:300px; margin-bottom: 30px;">
 
-    <div class="card-img-overlay">
-      <h4 class="card-title"> <%= e.name %></h4>    
+    <div>
+      <h4 class="card-title"> <%= e.name %></h4>
+      <% if e.img_url %>
       <img class="card-img-top" src=<%= url_for(e.img_url) %> alt="Card image">
+      <% end %>
       <p class="card-text">Ranking <%= e.average_rating %></p>
+      <p class="card-text">User Adds: <%= e.popularity %></p>
       <%= button_to "See Details", place_path(e.id), method: :get, form_class: "btn btn-primary", id: 'btn' %>
       <input type="hidden" class="lat-div" value="<%=e.four_dec_lat%>" >
       <input type="hidden" class="lng-div" value="<%=e.four_dec_lng%>" >
@@ -80,7 +36,7 @@
 
     <% end %>
 
-    </body>
+
 
 
 

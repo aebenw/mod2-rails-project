@@ -1,9 +1,7 @@
 class PlacesController < ApplicationController
 
   def index
-    # if logged_in?
-    #   @places = UserPlace.find_by(user_id: session[:user_id])
-    @places = Place.all
+    @places = Place.all.sort_by {|pl| pl.users.size}
   end
 
   def show
@@ -29,7 +27,7 @@ class PlacesController < ApplicationController
   private
 
   def place_params
-    params.require(:place).permit(:name,:average_ranking, :lat, :lng, :kind, :img_url)
+    params.require(:place).permit(:name,:average_rating, :lat, :lng, :kind, :img_url, :average_rating, :desc)
  end
 
 end

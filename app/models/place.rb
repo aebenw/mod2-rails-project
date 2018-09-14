@@ -29,6 +29,9 @@ class Place < ApplicationRecord
     self.lng = self.lng.truncate(4).to_s.to_f
   end
 
+  def popularity
+    self.users.count
+  end
 
 
 end

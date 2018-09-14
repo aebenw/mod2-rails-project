@@ -1,3 +1,48 @@
 
 
- @import "bootstrap";
+
+
+  #grad {
+    background-image: linear-gradient(#e3f2fd, #4f7cf9);
+   }
+
+  #map{
+ 	 height:300px;
+      width:450px;
+      float:right;
+      margin-top: 26px;
+      margin-right: 26px;
+
+  }
+  #out{
+ 	 height:300px;
+ 	 width:300px;
+  }
+
+  #map-container{
+     float:right;
+  }
+
+
+  img{
+      height: 300px;
+      width: 300px;
+  }
+
+  form .btn {
+    background-color: blue;
+  }
+  .btn-primary{
+    color: black;
+
+
+  }
+
+  .btn:hover {
+   color:green;
+ }
+
+ h4 {
+   font-family: "Arial", sans-serif;
+
+ }

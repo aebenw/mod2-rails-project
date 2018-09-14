@@ -18,50 +18,52 @@
 </center>
 
 
-
+<div class="container">
 <center id="c">
-<h1 class="mb-10">Add a destination</h1>
-<div class="form-holder">
-<%= form_for @place do |f| %>
-<div class="form-group">
+<h1 class="mb-10">Add a Location</h1>
+
+
+<%= form_for @place,  :html => {:class => 'form_group'} do |f| %>
+<div class="col-3">
 <%= f.label :name %>
 <br>
-<%= f.text_field :name , class: "form-control", id: "name"%>
+<%= f.text_field :name , class: "col-3", id: "name"%>
 </div>
 <br>
-<div class="form-group">
-<%= f.label :average_rating %>
+<div class="col-3">
+<%= f.label "Your Rating" %>
+<%= f.select "average_rating", options_for_select((1..5)) %>
 <br>
-<%= f.text_field :average_rating , class: "form-control", id:"average_ranking" %>
+
 </div>
 <br>
 
-<div class="form-group">
+<div class="col-3">
 <%= f.label :lat %>
 <br>
-<%= f.text_field :lat , class: "form-control", id:"lat" %>
+<%= f.text_field :lat , class: "col-3", id:"lat" %>
 </div>
 <br>
 
-<div class="form-group">
+<div class="col-3">
 <%= f.label :lng %>
 <br>
-<%= f.text_field :lng , class: "form-control", id:"lng" %>
+<%= f.text_field :lng , class: "col-3", id:"lng" %>
 </div>
 <br>
 
 
-<div class="form-group">
-<%= f.label :kind %>
+<div class="col-3">
+<%= f.label "Description" %>
 <br>
-<%= f.text_field :kind , class: "form-control", id:"kind"%>
+<%= f.text_area :desc , id:"desc"%>
 </div>
 <br>
 
-<div class="form-group">
+<div class="col-3">
 <%= f.label :img_url %>
 <br>
-<%= f.file_field :img_url , class: "form-control"%>
+<%= f.file_field :img_url , class: "col-3"%>
 </div>
 <br>
 
@@ -70,6 +72,7 @@
 <% end %>
 </div>
 </center>
+</div>
 
 
 

@@ -31,4 +31,6 @@ class ApplicationController < ActionController::Base
     self.lng.truncate(4).to_s.to_f
   end
 
+
+
 end

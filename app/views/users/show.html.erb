@@ -1,7 +1,29 @@
-<h1><%= @user.name %></h1>
-<% if @user.places.any? %>
+<style>
 
+  .number {
+    color:green;
+  }
+
+
+</style>
+
+
+
+<h1><%= @user.name %></h1>
+<% if @user.places.any? || @user.made_places.any? %>
+
+  <% if @user.make_places.any? %>
+    <h3>Places You've Created</h3>
+      <% @user.make_places.map do |made| %>
+      <br /><p>
+        <%= link_to made.place.name, place_path(made.place.id) %></p><br />
+        Amount of User Adds: <p class="number"><%= made.place.popularity %></p>
+      <% end %>
+
+  <% end %>
+  <% if @user.places.any? %>
 <h3>Your Saved Places</h3>
+
   <% @user.places.map do |place| %>
   <br /><%= link_to place.name, place_path(place.id) %><br />
     <% up = find_up(user: @user.id, place: place.id) %>
@@ -16,6 +38,7 @@
   <% end %>
   <%= link_to "Remove from your List", delete_up_path(place.id), method: :delete%><br />
   <% end %>
+  <% end  %>
   <% else %>
   <h3>No Places in your Profile!</h3>
 

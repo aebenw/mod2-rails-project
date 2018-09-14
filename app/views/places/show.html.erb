@@ -54,11 +54,25 @@
 
 <div class="pads">
 
+<% if @place.img_url %>
 <img src=<%= url_for(@place.img_url) %></br>
+<% end %>
+
+<!-- Good place for a joke image, if none was uploaded -->
+
 
 <h2><%= @place.name %></h2>
 <h3>Average User Rating: <%= @place.average_rating %></h3>
-<h2><%= button_to "Add Place to Profile", add_up_path(@place.id)  %></h2>
+<% if @place.desc %>
+<h3><%= @place.desc %></h3>
+<% end %>
+
+<% if !(MakePlace.find_by(user_id: session[:user_id], place_id: @place.id)) %>
+<p><%= button_to "Add Place to Profile", add_up_path(@place.id)  %>
+<% else %>
+</p>
+Number of User Adds <%= @place.popularity %>
+<% end %>
 
 </div>
 
